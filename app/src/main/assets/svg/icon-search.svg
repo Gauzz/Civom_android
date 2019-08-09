@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64.218" height="63.737" viewBox="0 0 64.218 63.737">
+  <g id="icon_search" data-name="icon/search" transform="translate(-947.302 -65.443)">
+    <g id="Rectangle_1495" data-name="Rectangle 1495" transform="matrix(0.966, -0.259, 0.259, 0.966, 947.302, 77.691)" fill="none" stroke="#32488d" stroke-width="6">
+      <rect width="47.321" height="47" rx="23.5" stroke="none"/>
+      <rect x="3" y="3" width="41.321" height="41" rx="20.5" fill="none"/>
+    </g>
+    <rect id="Rectangle_1494" data-name="Rectangle 1494" width="5" height="26" rx="2.5" transform="translate(989.599 110.796) rotate(-45)" fill="#32488d"/>
+  </g>
+</svg>
