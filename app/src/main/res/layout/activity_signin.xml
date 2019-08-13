@@ -75,21 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider" />
 
-    <TextView
-        android:id="@+id/text_or"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:background="#00FFFFFF"
-        android:elevation="4dp"
-        android:fontFamily="@font/montserrat"
-        android:text="or"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@id/divider"
-        app:layout_constraintEnd_toEndOf="@+id/divider"
-        app:layout_constraintStart_toStartOf="@+id/divider"
-        app:layout_constraintTop_toBottomOf="@id/divider" />
-
     <View
         android:id="@+id/divider"
         android:layout_width="395dp"
@@ -101,6 +86,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <TextView
+        android:id="@+id/text_or"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="#FFFFFFFF"
+        android:elevation="0dp"
+        android:fontFamily="@font/montserrat"
+        android:text="or"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/divider"
+        app:layout_constraintEnd_toEndOf="@+id/divider"
+        app:layout_constraintStart_toStartOf="@+id/divider"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
 
     <TextView
         android:id="@+id/textView3"
