@@ -24,7 +24,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -60,7 +59,6 @@
         tools:layout_conversion_absoluteWidth="308dp" />
 
     <Button
-        android:id="@+id/button"
         android:layout_width="147dp"
         android:layout_height="42dp"
         android:layout_marginStart="8dp"
@@ -72,7 +70,6 @@
         app:layout_constraintTop_toBottomOf="@+id/text_softseating" />
 
     <HorizontalScrollView
-        android:id="@+id/scrollView3"
         android:layout_width="458dp"
         android:layout_height="258dp"
         android:layout_marginStart="8dp"
@@ -83,7 +80,6 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
-            android:id="@+id/linearLayout212"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
@@ -96,7 +92,6 @@
                 app:cardBackgroundColor="#00FFFFFF">
 
                 <LinearLayout
-                    android:id="@+id/linearLayout31"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_gravity="center|center_vertical"
@@ -109,7 +104,6 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/text_whycivom2121"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat"
@@ -128,7 +122,6 @@
                             tools:layout_editor_absoluteY="0dp" />
 
                         <TextView
-                            android:id="@+id/text_read212"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.75"
@@ -139,7 +132,6 @@
                     </LinearLayout>
 
                     <ImageButton
-                        android:id="@+id/imageButton412"
                         android:layout_width="12dp"
                         android:layout_height="56dp"
                         android:layout_gravity="left"
@@ -168,7 +160,6 @@
                 app:cardMaxElevation="15dp">
 
                 <LinearLayout
-                    android:id="@+id/linearLayout041"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_gravity="center|center_vertical"
@@ -181,7 +172,6 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/text_whycivom031"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat"
@@ -200,7 +190,6 @@
                             tools:layout_editor_absoluteY="0dp" />
 
                         <TextView
-                            android:id="@+id/text_read0312"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.75"
@@ -211,7 +200,6 @@
                     </LinearLayout>
 
                     <ImageButton
-                        android:id="@+id/imageButton0512"
                         android:layout_width="12dp"
                         android:layout_height="56dp"
                         android:layout_gravity="left"
@@ -241,7 +229,6 @@
                 app:cardMaxElevation="15dp">
 
                 <LinearLayout
-                    android:id="@+id/linearLayout41"
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_gravity="center|center_vertical"
@@ -254,7 +241,6 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/text_whycivom31"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/montserrat"
@@ -273,7 +259,6 @@
                             tools:layout_editor_absoluteY="0dp" />
 
                         <TextView
-                            android:id="@+id/text_read312"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.75"
@@ -284,7 +269,6 @@
                     </LinearLayout>
 
                     <ImageButton
-                        android:id="@+id/imageButton512"
                         android:layout_width="12dp"
                         android:layout_height="56dp"
                         android:layout_gravity="left"
