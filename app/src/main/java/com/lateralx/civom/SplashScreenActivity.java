@@ -7,7 +7,6 @@ import android.os.Handler;
 
 public class SplashScreenActivity extends Activity {
 
-
         /**
          * Duration of wait
          **/
