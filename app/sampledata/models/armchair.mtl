@@ -1,0 +1,37 @@
+# Blender MTL File: 'None'
+# Material Count: 3
+
+newmtl METALOK
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588200 0.588200 0.588200
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.500000
+d 1.000000
+illum 1
+map_Kd cartagena-arm-chair-espresso-703654\\source\\shiny-metal-background.jpg
+
+newmtl RATAN
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588200 0.588200 0.588200
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.500000
+d 1.000000
+illum 1
+map_Bump (2).jpg
+map_Kd cartagena-arm-chair-espresso-703654\\source\\cgaxis_models_17_22_01_(2).jpg
+
+newmtl TELA
+Ns 10.000002
+Ka 1.000000 1.000000 1.000000
+Kd 0.588200 0.588200 0.588200
+Ks 0.000000 0.000000 0.000000
+Ke 0.0 0.0 0.0
+Ni 1.500000
+d 1.000000
+illum 1
+map_Bump C:\\Users\\Tania\\Desktop\\zuo\\MAPS\\cgaxis_models_17_22_01_bump.jpg
+map_Kd cartagena-arm-chair-espresso-703654\\source\\Rattan_chair_chair_rotang_chair_rotang_sea.jpg

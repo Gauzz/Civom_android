@@ -17,6 +17,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
 }
 
 dependencies {
@@ -29,4 +33,20 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
 
+    // Provides ArFragment, and other Sceneform UX resources:
+    implementation "com.google.ar.sceneform.ux:sceneform-ux:1.11.0"
+
+    // Use the Sceneform UX Package built from the source files included in the sceneformux folder.
+    //api project(":sceneformux")
+
+    // Alternatively, use ArSceneView without the UX dependency.
+    //implementation "com.google.ar.sceneform:core:1.11.0"
+    implementation "com.android.support:appcompat-v7:28.0.0"
+
 }
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+sceneform.asset('sampledata/models/armchair.obj',
+        'default',
+        'sampledata/models/armchair.sfa',
+        'src/main/res/raw/armchair')

@@ -1,0 +1,111 @@
+{
+  materials: [
+    {
+      name: 'METALOK',
+      parameters: [
+        {
+          baseColor: 'shiny-metal-background',
+        },
+        {
+          baseColorTint: [
+            0.58819999999999995,
+            0.58819999999999995,
+            0.58819999999999995,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'RATAN',
+      parameters: [
+        {
+          baseColor: 'cgaxis_models_17_22_01_(2)',
+        },
+        {
+          baseColorTint: [
+            0.58819999999999995,
+            0.58819999999999995,
+            0.58819999999999995,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+    {
+      name: 'TELA',
+      parameters: [
+        {
+          baseColor: 'Rattan_chair_chair_rotang_chair_rotang_sea',
+        },
+        {
+          baseColorTint: [
+            0.58819999999999995,
+            0.58819999999999995,
+            0.58819999999999995,
+            1,
+          ],
+        },
+        {
+          metallic: 0,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/obj_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+    ],
+    collision: {},
+    file: 'sampledata/models/armchair.obj',
+    name: 'armchair',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models\\source\\\\Rattan_chair_chair_rotang_chair_rotang_sea.jpg',
+      name: 'Rattan_chair_chair_rotang_chair_rotang_sea',
+      pipeline_name: 'cartagena-arm-chair-espresso-703654\\\\source\\\\Rattan_chair_chair_rotang_chair_rotang_sea.jpg',
+    },
+    {
+      file: 'sampledata/models\\source\\\\cgaxis_models_17_22_01_(2).jpg',
+      name: 'cgaxis_models_17_22_01_(2)',
+      pipeline_name: 'cartagena-arm-chair-espresso-703654\\\\source\\\\cgaxis_models_17_22_01_(2).jpg',
+    },
+    {
+      file: 'sampledata/models\\source\\\\shiny-metal-background.jpg',
+      name: 'shiny-metal-background',
+      pipeline_name: 'cartagena-arm-chair-espresso-703654\\\\source\\\\shiny-metal-background.jpg',
+    },
+  ],
+  version: '0.54:2',
+}
