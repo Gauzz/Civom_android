@@ -22,25 +22,20 @@
             android:background="#FCFBFB"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"></LinearLayout>
-
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                app:cardUseCompatPadding="true">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:layout_gravity="center|center_vertical"
-                    android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="2dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/menucivom">
+
 
                     <LinearLayout
                         android:layout_width="216dp"
@@ -97,13 +92,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00FFFFFF">
 
                 <android.support.v7.widget.CardView
                     android:layout_width="207dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/a"
-                    app:cardBackgroundColor="#00FFFFFF">
+                    app:cardBackgroundColor="#00FFFFFF"
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -118,10 +121,9 @@
                         android:baselineAligned="false">
 
                         <LinearLayout
-                            android:layout_width="197dp"
+                            android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:background="@drawable/a"
                             android:orientation="vertical">
 
                             <TextView
@@ -149,13 +151,12 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:layout_width="200dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="0dp"
                     app:cardBackgroundColor="#00FFFFFF"
-                    app:cardCornerRadius="34dp"
-                    app:cardElevation="25dp"
-                    app:cardMaxElevation="15dp">
+                    app:cardCornerRadius="2dp"
+                    app:cardElevation="2dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -198,7 +199,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="0.75"
                                 android:fontFamily="@font/montserrat"
-                                android:paddingLeft="12dp"
                                 android:textColor="#767B91" />
                         </LinearLayout>
 
@@ -254,6 +254,7 @@
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
+
                 <android.support.v7.widget.CardView
                     android:layout_width="416dp"
                     android:layout_height="wrap_content">
@@ -267,6 +268,13 @@
                         android:textAlignment="textStart">
 
                         <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Need any help? Feel free to drop us a mail."
+                            android:textAlignment="center" />
+
+                        <TextView
                             android:id="@+id/textView9"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -275,15 +283,12 @@
                             android:textAlignment="center"
                             android:textSize="24sp" />
 
-                        <TextView
-                            android:id="@+id/textView8"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Need any help? Feel free to drop us a mail."
-                            android:textAlignment="center" />
-
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
 
             </LinearLayout>
 
@@ -295,5 +300,25 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.87" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="@android:color/background_light"
+        app:itemIconTint="#32488D"
+        app:itemTextColor="#32488D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
 
 </android.support.constraint.ConstraintLayout>
