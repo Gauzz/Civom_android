@@ -8,7 +8,7 @@
 
     <item
         android:id="@+id/navigation_albums"
-        android:icon="@drawable/iconhome3x"
+        android:icon="@drawable/iconhome"
         android:title="HOME" />
 
     <item
