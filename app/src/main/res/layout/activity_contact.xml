@@ -117,27 +117,6 @@
         app:srcCompat="@drawable/contact_icon" />
 
 
-    <android.support.v7.widget.CardView
-        android:layout_width="270dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:cardBackgroundColor="#F44336"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.071">
-
-        <RelativeLayout
-            android:layout_width="270dp"
-            android:layout_height="170dp"
-            android:background="@drawable/background"></RelativeLayout>
-    </android.support.v7.widget.CardView>
-
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -152,5 +131,17 @@
         app:layout_constraintVertical_bias="0.667"
         app:srcCompat="@drawable/logo" />
 
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="@android:color/background_light"
+        app:itemIconTint="#32488D"
+        app:itemTextColor="#32488D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
 
 </android.support.constraint.ConstraintLayout>
