@@ -1,0 +1,101 @@
+{
+  materials: [
+    {
+      name: '23 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'g-innen-1_pink',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '10 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0,
+            0,
+            0,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Criss cross ottoman/Criss cross ottoman.FBX',
+    name: 'Criss cross ottoman',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Criss cross ottoman\\Criss cross ottoman.fbm\\g-innen-1_pink.jpg',
+      name: 'g-innen-1_pink',
+      pipeline_name: 'Criss cross ottoman.fbm\\g-innen-1_pink.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

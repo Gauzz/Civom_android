@@ -1,0 +1,273 @@
+{
+  materials: [
+    {
+      name: '09 - Defaultasdf',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Merigold',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '04 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.0078429999999999993,
+            0.0078429999999999993,
+            0.0078429999999999993,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '09 - asdfa',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Wasabi',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'Material #39',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Amethyst',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '06 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Hedron pacific',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '09 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Cherry',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Hexagon Ottoman/Hexagon Ottoman.FBX',
+    name: 'Hexagon Ottoman',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Hexagon Ottoman\\Hexagon Ottoman.fbm\\Cherry.jpg',
+      name: 'Cherry',
+      pipeline_name: 'Hexagon Ottoman.fbm\\Cherry.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Hexagon Ottoman\\Hexagon Ottoman.fbm\\Merigold.jpg',
+      name: 'Merigold',
+      pipeline_name: 'Hexagon Ottoman.fbm\\Merigold.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Hexagon Ottoman\\Hexagon Ottoman.fbm\\Wasabi.jpg',
+      name: 'Wasabi',
+      pipeline_name: 'Hexagon Ottoman.fbm\\Wasabi.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Hexagon Ottoman\\Hexagon Ottoman.fbm\\Hedron pacific.jpg',
+      name: 'Hedron pacific',
+      pipeline_name: 'Hexagon Ottoman.fbm\\Hedron pacific.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Hexagon Ottoman\\Hexagon Ottoman.fbm\\Amethyst.jpg',
+      name: 'Amethyst',
+      pipeline_name: 'Hexagon Ottoman.fbm\\Amethyst.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

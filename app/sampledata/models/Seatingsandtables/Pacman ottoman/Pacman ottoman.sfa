@@ -1,0 +1,101 @@
+{
+  materials: [
+    {
+      name: '23 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'teal',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '02 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.023529000000000001,
+            0.023529000000000001,
+            0.023529000000000001,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Pacman ottoman/Pacman ottoman.FBX',
+    name: 'Pacman ottoman',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Pacman ottoman\\Pacman ottoman.fbm\\teal.jpg',
+      name: 'teal',
+      pipeline_name: 'Pacman ottoman.fbm\\teal.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

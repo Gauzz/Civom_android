@@ -1,0 +1,101 @@
+{
+  materials: [
+    {
+      name: '09 - Defaultadsf',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'teal',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '04 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.0078429999999999993,
+            0.0078429999999999993,
+            0.0078429999999999993,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Semi Circle/Semi Circle.FBX',
+    name: 'Semi Circle',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Semi Circle\\Semi Circle.fbm\\teal.jpg',
+      name: 'teal',
+      pipeline_name: 'Semi Circle.fbm\\teal.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

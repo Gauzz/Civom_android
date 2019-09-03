@@ -1,0 +1,101 @@
+{
+  materials: [
+    {
+      name: '09 - Defaultasdf',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Gunmetal',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '10 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.50196099999999999,
+            0.50196099999999999,
+            0.50196099999999999,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Lobby ottoman_/Lobby ottoman.FBX',
+    name: 'Lobby ottoman',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Lobby ottoman_\\Lobby ottoman.fbm\\Gunmetal.jpg',
+      name: 'Gunmetal',
+      pipeline_name: 'Lobby ottoman.fbm\\Gunmetal.jpg',
+    },
+  ],
+  version: '0.54:2',
+}
