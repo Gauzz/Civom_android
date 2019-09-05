@@ -19,18 +19,20 @@ public class IntroActivity extends OnboarderActivity {
         onboarderPages = new ArrayList<OnboarderPage>();
 
         // Create your first page
-        OnboarderPage onboarderPage1 = new OnboarderPage("Title 1", "Description 1",R.drawable.tapadd);
+        OnboarderPage onboarderPage1 = new OnboarderPage("Tap", "To place an object in your space",R.drawable.tapadd);
 
-        OnboarderPage onboarderPage2 = new OnboarderPage("Civom", "civom",R.drawable.tapdrag);
+        OnboarderPage onboarderPage2 = new OnboarderPage("Tap and Drag", "To move object in your space",R.drawable.tapdrag);
 
-        OnboarderPage onboarderPage3 = new OnboarderPage("Civom", "civom",R.drawable.rotatepng);
+        OnboarderPage onboarderPage3 = new OnboarderPage("Two finger Rotate", "To rotate the object in your space",R.drawable.rotatepng);
 
         // You can define title and description colors (by default white)
         onboarderPage1.setTitleColor(R.color.colorPrimary);
         onboarderPage1.setDescriptionColor(R.color.colorPrimary);
 
         // Don't forget to set background color for your page
-        onboarderPage1.setBackgroundColor(R.color.white);
+        onboarderPage1.setBackgroundColor(R.color.intro1);
+        onboarderPage2.setBackgroundColor(R.color.intro2);
+        onboarderPage3.setBackgroundColor(R.color.intro3);
 
         // Add your pages to the list
         onboarderPages.add(onboarderPage1);

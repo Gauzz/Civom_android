@@ -3,7 +3,10 @@ package com.lateralx.civom;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,16 +18,27 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.assets.RenderableSource;
 import com.google.ar.sceneform.rendering.ModelRenderable;
+import com.google.ar.sceneform.rendering.Renderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class ViewInARActivity extends AppCompatActivity {
     private static final String TAG = ViewInARActivity.class.getSimpleName();
     private static final double MIN_OPENGL_VERSION = 3.0;
-
     private ArFragment arFragment;
     private ModelRenderable andyRenderable;
+    private String df;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,19 +50,39 @@ public class ViewInARActivity extends AppCompatActivity {
         }
 
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
-
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
+
+        URI uri= null;
+        try {
+            uri = new URI("https://7494a6f1.ap.ngrok.io/cube.sfb");
+            savefile(uri);
+        } catch (URISyntaxException e) {
+            Log.d(TAG,e+" civom ");
+            Toast toastmsg =
+                    Toast.makeText(this, e.toString(), Toast.LENGTH_LONG);
+            toastmsg.setGravity(Gravity.CENTER, 0, 0);
+            toastmsg.show();
+
+            e.printStackTrace();
+        }
+
+        File f = new File(df);
+        Toast toast =
+                Toast.makeText(this, f.getAbsolutePath(), Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        toast.show();
+
         ModelRenderable.builder()
-                .setSource(this, R.raw.armchair)
+                .setSource(this,Uri.fromFile(f))
                 .build()
                 .thenAccept(renderable -> andyRenderable = renderable)
                 .exceptionally(
                         throwable -> {
-                            Toast toast =
+                            Toast toastm =
                                     Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
+                            toastm.setGravity(Gravity.CENTER, 0, 0);
+                            toastm.show();
                             return null;
                         });
 
@@ -65,8 +99,6 @@ public class ViewInARActivity extends AppCompatActivity {
 
                     // Create the transformable andy and add it to the anchor.
                     TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
-                    andy.getScaleController().setMaxScale(0.21f);
-                    andy.getScaleController().setMinScale(0.2f);
                     andy.setParent(anchorNode);
                     andy.setRenderable(andyRenderable);
                     andy.select();
@@ -94,4 +126,32 @@ public class ViewInARActivity extends AppCompatActivity {
         return true;
     }
 
-}
+    void savefile(URI sourceuri)
+    {
+        String sourceFilename= sourceuri.getPath();
+        String destinationFilename = Environment.DIRECTORY_DCIM+File.separatorChar+"cube.sfb";
+        df=destinationFilename;
+        BufferedInputStream bis = null;
+        BufferedOutputStream bos = null;
+
+        try {
+            bis = new BufferedInputStream(new FileInputStream(sourceFilename));
+            bos = new BufferedOutputStream(new FileOutputStream(destinationFilename, false));
+            byte[] buf = new byte[1024];
+            bis.read(buf);
+            do {
+                bos.write(buf);
+            } while(bis.read(buf) != -1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bis != null) bis.close();
+                if (bos != null) bos.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+   }
