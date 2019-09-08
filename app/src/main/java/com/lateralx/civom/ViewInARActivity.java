@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.content.SharedPreferences;
+
 import android.os.Build;
-import android.os.Environment;
+import android.preference.PreferenceManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,20 +20,10 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
-import com.google.ar.sceneform.assets.RenderableSource;
 import com.google.ar.sceneform.rendering.ModelRenderable;
-import com.google.ar.sceneform.rendering.Renderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class ViewInARActivity extends AppCompatActivity {
     private static final String TAG = ViewInARActivity.class.getSimpleName();
@@ -39,11 +31,31 @@ public class ViewInARActivity extends AppCompatActivity {
     private ArFragment arFragment;
     private ModelRenderable andyRenderable;
     private String df;
+    private int model;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_in_ar);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
+        if(!previouslyStarted) {
+            SharedPreferences.Editor edit = prefs.edit();
+            edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
+            edit.commit();
+            openIntro();
+        }
+
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
+        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
+        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(viewPager, pagerAdapter);
+        fragmentCardShadowTransformer.enableScaling(true);
+
+        viewPager.setAdapter(pagerAdapter);
+        viewPager.setPageTransformer(false, fragmentCardShadowTransformer);
+        viewPager.setOffscreenPageLimit(5);
+        selectModel(0);
 
         if (!checkIsSupportedDeviceOrFinish(this)) {
             return;
@@ -53,38 +65,9 @@ public class ViewInARActivity extends AppCompatActivity {
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
 
-        URI uri= null;
-        try {
-            uri = new URI("https://7494a6f1.ap.ngrok.io/cube.sfb");
-            savefile(uri);
-        } catch (URISyntaxException e) {
-            Log.d(TAG,e+" civom ");
-            Toast toastmsg =
-                    Toast.makeText(this, e.toString(), Toast.LENGTH_LONG);
-            toastmsg.setGravity(Gravity.CENTER, 0, 0);
-            toastmsg.show();
+       fragmentCardShadowTransformer.setArModel(this);
 
-            e.printStackTrace();
-        }
 
-        File f = new File(df);
-        Toast toast =
-                Toast.makeText(this, f.getAbsolutePath(), Toast.LENGTH_LONG);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        toast.show();
-
-        ModelRenderable.builder()
-                .setSource(this,Uri.fromFile(f))
-                .build()
-                .thenAccept(renderable -> andyRenderable = renderable)
-                .exceptionally(
-                        throwable -> {
-                            Toast toastm =
-                                    Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG);
-                            toastm.setGravity(Gravity.CENTER, 0, 0);
-                            toastm.show();
-                            return null;
-                        });
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
@@ -98,13 +81,43 @@ public class ViewInARActivity extends AppCompatActivity {
                     anchorNode.setParent(arFragment.getArSceneView().getScene());
 
                     // Create the transformable andy and add it to the anchor.
-                    TransformableNode andy = new TransformableNode(arFragment.getTransformationSystem());
-                    andy.setParent(anchorNode);
-                    andy.setRenderable(andyRenderable);
-                    andy.select();
+                    TransformableNode object = new TransformableNode(arFragment.getTransformationSystem());
+                    object.setParent(anchorNode);
+                    object.setRenderable(andyRenderable);
+                    object.getScaleController().setMinScale(0.99f);
+                    object.getScaleController().setMaxScale(1.0f);
+                    object.select();
                 });
 
     }
+
+    public void selectModel(int i) {
+        model = R.raw.cube;
+        if(i==0)
+            model = R.raw.cube;
+        else if(i==1)
+            model = R.raw.rectangleottoman;
+        else if(i==2)
+            model = R.raw.commaottomanmy;
+        ModelRenderable.builder()
+                .setSource(this,model)
+                .build()
+                .thenAccept(renderable -> andyRenderable = renderable)
+                .exceptionally(
+                        throwable -> {
+                            Toast toastm =
+                                    Toast.makeText(this, "Unable to load andy renderable", Toast.LENGTH_LONG);
+                            toastm.setGravity(Gravity.CENTER, 0, 0);
+                            toastm.show();
+                            return null;
+                        });
+    }
+
+    private void openIntro() {
+        Intent i = new Intent(this,IntroActivity.class);
+        startActivity(i);
+    }
+
     public static boolean checkIsSupportedDeviceOrFinish(final Activity activity) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
             Log.e(TAG, "Sceneform requires Android N or later");
@@ -126,32 +139,7 @@ public class ViewInARActivity extends AppCompatActivity {
         return true;
     }
 
-    void savefile(URI sourceuri)
-    {
-        String sourceFilename= sourceuri.getPath();
-        String destinationFilename = Environment.DIRECTORY_DCIM+File.separatorChar+"cube.sfb";
-        df=destinationFilename;
-        BufferedInputStream bis = null;
-        BufferedOutputStream bos = null;
-
-        try {
-            bis = new BufferedInputStream(new FileInputStream(sourceFilename));
-            bos = new BufferedOutputStream(new FileOutputStream(destinationFilename, false));
-            byte[] buf = new byte[1024];
-            bis.read(buf);
-            do {
-                bos.write(buf);
-            } while(bis.read(buf) != -1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (bis != null) bis.close();
-                if (bos != null) bos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+    public static float dpToPixels(int dp, Context context) {
+        return dp * (context.getResources().getDisplayMetrics().density);
     }
-
-   }
+}

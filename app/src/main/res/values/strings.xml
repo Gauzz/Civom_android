@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Civom</string>
+    <string name="pref_previously_started">false</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Etiam eget ligula eu lectus lobortis condimentum.</string>
 </resources>

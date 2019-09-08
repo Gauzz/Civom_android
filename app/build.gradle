@@ -33,6 +33,7 @@ dependencies {
     implementation 'com.android.support:cardview-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
 
+
     // Provides ArFragment, and other Sceneform UX resources:
     implementation "com.google.ar.sceneform.ux:sceneform-ux:1.11.0"
     implementation 'com.google.ar.sceneform:assets:1.11.0'
@@ -49,106 +50,107 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0'
     implementation 'com.github.chyrta:AndroidOnboarder:0.7'
+    implementation 'com.android.support:support-v4:28.0.0'
 }
 apply plugin: 'com.google.ar.sceneform.plugin'
 
-sceneform.asset('sampledata/models/armchair.obj',
-        'default',
-        'sampledata/models/armchair.sfa',
-        'src/main/res/raw/armchair')
-
-
-sceneform.asset('sampledata/models/Seatingsandtables/Comma ottoman_/Comma ottoman my.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Comma ottoman_/Comma ottoman my.sfa',
-        'src/main/assets/Comma ottoman my')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Corner Ottoman_/Corner Ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Corner Ottoman_/Corner Ottoman.sfa',
-        'src/main/assets/Corner Ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Crescent Ottoman/Crescent Ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Crescent Ottoman/Crescent Ottoman.sfa',
-        'src/main/assets/Crescent Ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Criss cross ottoman/Criss cross ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Criss cross ottoman/Criss cross ottoman.sfa',
-        'src/main/assets/Criss cross ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Cube/Cube.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Cube/Cube.sfa',
-        'src/main/assets/Cube')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Hexagon Ottoman/Hexagon Ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Hexagon Ottoman/Hexagon Ottoman.sfa',
-        'src/main/assets/Hexagon Ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Kidney Ottoman/Kidney Ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Kidney Ottoman/Kidney Ottoman.sfa',
-        'src/main/assets/Kidney Ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Light Bulb/Light Bulb.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Light Bulb/Light Bulb.sfa',
-        'src/main/assets/Light Bulb')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Lime/Lime.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Lime/Lime.sfa',
-        'src/main/assets/Lime')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Lobby ottoman_/Lobby ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Lobby ottoman_/Lobby ottoman.sfa',
-        'src/main/assets/Lobby ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Luna/Luna.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Luna/Luna.sfa',
-        'src/main/assets/Luna')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Pacman ottoman/Pacman ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Pacman ottoman/Pacman ottoman.sfa',
-        'src/main/assets/Pacman ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Pentagon ottoman/Pentagon ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Pentagon ottoman/Pentagon ottoman.sfa',
-        'src/main/assets/Pentagon ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Rectangle/Ractangle ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Rectangle/Ractangle ottoman.sfa',
-        'src/main/assets/Ractangle ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Round/Round ottoman (2).FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Round/Round ottoman (2).sfa',
-        'src/main/assets/Round ottoman (2)')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Semi Circle/Semi Circle.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Semi Circle/Semi Circle.sfa',
-        'src/main/assets/Semi Circle')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Triangle/Triangle.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Triangle/Triangle.sfa',
-        'src/main/assets/Triangle')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Trihex ottoman_/Trihex ottoman.FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Trihex ottoman_/Trihex ottoman.sfa',
-        'src/main/assets/Trihex ottoman')
-
-sceneform.asset('sampledata/models/Seatingsandtables/Tube/Tube (1).FBX',
-        'default',
-        'sampledata/models/Seatingsandtables/Tube/Tube (1).sfa',
-        'src/main/assets/Tube (1)')
+//sceneform.asset('sampledata/models/armchair.obj',
+//        'default',
+//        'sampledata/models/armchair.sfa',
+//        'src/main/res/raw/armchair')
+//
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Comma ottoman_/Comma ottoman my.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Comma ottoman_/Comma ottoman my.sfa',
+//        'src/main/assets/Comma ottoman my')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Corner Ottoman_/Corner Ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Corner Ottoman_/Corner Ottoman.sfa',
+//        'src/main/assets/Corner Ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Crescent Ottoman/Crescent Ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Crescent Ottoman/Crescent Ottoman.sfa',
+//        'src/main/assets/Crescent Ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Criss cross ottoman/Criss cross ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Criss cross ottoman/Criss cross ottoman.sfa',
+//        'src/main/assets/Criss cross ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Cube/Cube.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Cube/Cube.sfa',
+//        'src/main/assets/Cube')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Hexagon Ottoman/Hexagon Ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Hexagon Ottoman/Hexagon Ottoman.sfa',
+//        'src/main/assets/Hexagon Ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Kidney Ottoman/Kidney Ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Kidney Ottoman/Kidney Ottoman.sfa',
+//        'src/main/assets/Kidney Ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Light Bulb/Light Bulb.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Light Bulb/Light Bulb.sfa',
+//        'src/main/assets/Light Bulb')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Lime/Lime.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Lime/Lime.sfa',
+//        'src/main/assets/Lime')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Lobby ottoman_/Lobby ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Lobby ottoman_/Lobby ottoman.sfa',
+//        'src/main/assets/Lobby ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Luna/Luna.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Luna/Luna.sfa',
+//        'src/main/assets/Luna')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Pacman ottoman/Pacman ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Pacman ottoman/Pacman ottoman.sfa',
+//        'src/main/assets/Pacman ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Pentagon ottoman/Pentagon ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Pentagon ottoman/Pentagon ottoman.sfa',
+//        'src/main/assets/Pentagon ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Rectangle/Ractangle ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Rectangle/Ractangle ottoman.sfa',
+//        'src/main/assets/Ractangle ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Round/Round ottoman (2).FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Round/Round ottoman (2).sfa',
+//        'src/main/assets/Round ottoman (2)')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Semi Circle/Semi Circle.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Semi Circle/Semi Circle.sfa',
+//        'src/main/assets/Semi Circle')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Triangle/Triangle.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Triangle/Triangle.sfa',
+//        'src/main/assets/Triangle')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Trihex ottoman_/Trihex ottoman.FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Trihex ottoman_/Trihex ottoman.sfa',
+//        'src/main/assets/Trihex ottoman')
+//
+//sceneform.asset('sampledata/models/Seatingsandtables/Tube/Tube (1).FBX',
+//        'default',
+//        'sampledata/models/Seatingsandtables/Tube/Tube (1).sfa',
+//        'src/main/assets/Tube (1)')

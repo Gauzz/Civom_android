@@ -1,7 +1,6 @@
 package com.lateralx.civom;
 
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.chyrta.onboarder.OnboarderActivity;
@@ -44,8 +43,10 @@ public class IntroActivity extends OnboarderActivity {
     }
 
     @Override
-    public void onFinishButtonPressed() {
-
+    public void onFinishButtonPressed()
+    {
+        Intent i = new Intent(this,ViewInARActivity.class);
+        startActivity(i);
     }
 
     @Override
@@ -57,4 +58,6 @@ public class IntroActivity extends OnboarderActivity {
     protected void onSkipButtonPressed() {
         super.onSkipButtonPressed();
     }
+
+
 }

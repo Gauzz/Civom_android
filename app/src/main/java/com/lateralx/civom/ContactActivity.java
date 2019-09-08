@@ -71,7 +71,7 @@ public class ContactActivity extends AppCompatActivity {
         }
     }
 
-    public void email()
+    public void email(View v)
     {
         Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "support@civom.co.in"));
         intent.putExtra(Intent.EXTRA_SUBJECT, "Enquiry For:");
