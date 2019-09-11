@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".whycivomActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="438dp"
+        android:layout_height="384dp"
+        android:text="At CIVOM, we challenge the conventional thinking in Learning Spaces. We have the capabilities to consult and deliver across the globe, and we aim to bring new vision and imagination to spaces in collaboration with Raeco - a globally recognised brand from Melbourne, Australia. CIVOM is a design-driven brand, where our team works in sync with clients, designers and architects to create an environment where consumers can learn, live, think and grow. We are continuously evolving, and we ensure that we keep doing that.We are not just limited to supplying furniture or furnishing pieces. We are invested in the process of creating spaces so that space is optimised concerning measurement, energy, and functionality. To help us do that, we have an indomitable in-house team of designers and workmen adept at working with different materials. Additionally, due to our international tie-ups, we have ready access to the latest designs and product models. This potent mix of skill and resources allows us to create unique solutions for each client."
+        app:layout_constraintBottom_toTopOf="@+id/navigationView"
+        app:layout_constraintStart_toStartOf="@+id/guideline3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.371" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:itemBackground="@android:color/background_light"
+        app:itemIconTint="#32488D"
+        app:itemTextColor="#32488D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
+</android.support.constraint.ConstraintLayout>

@@ -12,7 +12,7 @@ import retrofit2.http.GET;
 public class RetrofitClientInstance {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://jsonplaceholder.typicode.com";
+    public static final String BASE_URL = "http://35.154.220.170:80";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {
@@ -26,7 +26,7 @@ public class RetrofitClientInstance {
 
     public interface GetDataService {
 
-        @GET("/photos")
+        @GET("/api/assets")
         Call<List<RetroPhoto>> getAllPhotos();
     }
 

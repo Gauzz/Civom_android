@@ -1,9 +1,8 @@
 package com.lateralx.civom;
 
-
 import android.support.v7.widget.CardView;
 
-public interface CardAdapter {
+public interface ARCardAdapter {
 
     public final int MAX_ELEVATION_FACTOR = 8;
 

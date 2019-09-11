@@ -68,7 +68,11 @@ public class HomeScreenActivity extends AppCompatActivity {
     }
 
     public void openCatalogue(View v){
-        Intent i = new Intent(this,CategoryActivity.class);
+        Intent i = new Intent(this,RetrofitActivity.class);
+        startActivity(i);
+    }
+    public void openWhyCivom(View v){
+        Intent i = new Intent(this,whycivomActivity.class);
         startActivity(i);
     }
 }

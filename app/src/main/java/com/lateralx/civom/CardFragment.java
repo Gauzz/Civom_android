@@ -8,6 +8,9 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class CardFragment extends Fragment {
@@ -28,12 +31,12 @@ public class CardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.item_viewpager, container, false);
+        View view = inflater.inflate(R.layout.item_productviewpager, container, false);
 
-        cardView = (CardView) view.findViewById(R.id.cardView);
+        cardView = (CardView) view.findViewById(R.id.productcard);
         cardView.setMaxCardElevation(cardView.getCardElevation() * CardAdapter.MAX_ELEVATION_FACTOR);
 
-
+        TextView title = (TextView) view.findViewById(R.id.title);
 
         return view;
     }

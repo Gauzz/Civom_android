@@ -2,32 +2,22 @@ package com.lateralx.civom;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class CategoryActivity extends AppCompatActivity {
+public class whycivomActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category);
+        setContentView(R.layout.activity_whycivom);
         Context c= this.getBaseContext();
         setupBottomNavigationView(c);
-        ViewPager viewPager = (ViewPager) findViewById(R.id.productviewPager);
-
-        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
-        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(viewPager, pagerAdapter);
-        fragmentCardShadowTransformer.enableScaling(true);
-
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.setPageTransformer(false, fragmentCardShadowTransformer);
-        viewPager.setOffscreenPageLimit(3);
     }
     public void setupBottomNavigationView(Context context) {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
@@ -73,11 +63,8 @@ public class CategoryActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-    public void openProduct(View v){
-        Intent i = new Intent(this,ProductActivity.class);
+    public void openCatalogue(View v){
+        Intent i = new Intent(this,RetrofitActivity.class);
         startActivity(i);
-    }
-    public static float dpToPixels(int dp, Context context) {
-        return dp * (context.getResources().getDisplayMetrics().density);
     }
 }

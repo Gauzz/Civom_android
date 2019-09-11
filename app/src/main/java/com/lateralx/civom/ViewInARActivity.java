@@ -48,12 +48,12 @@ public class ViewInARActivity extends AppCompatActivity {
         }
 
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
-        ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(viewPager, pagerAdapter);
-        fragmentCardShadowTransformer.enableScaling(true);
+        ARCardFragmentPagerAdapter pagerAdapter = new ARCardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
+        ARShadowTransformer fragmentCardARShadowTransformer = new ARShadowTransformer(viewPager, pagerAdapter);
+        fragmentCardARShadowTransformer.enableScaling(true);
 
         viewPager.setAdapter(pagerAdapter);
-        viewPager.setPageTransformer(false, fragmentCardShadowTransformer);
+        viewPager.setPageTransformer(false, fragmentCardARShadowTransformer);
         viewPager.setOffscreenPageLimit(5);
         selectModel(0);
 
@@ -65,7 +65,7 @@ public class ViewInARActivity extends AppCompatActivity {
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
 
-       fragmentCardShadowTransformer.setArModel(this);
+       fragmentCardARShadowTransformer.setArModel(this);
 
 
 
@@ -93,12 +93,21 @@ public class ViewInARActivity extends AppCompatActivity {
 
     public void selectModel(int i) {
         model = R.raw.cube;
-        if(i==0)
+        if(i==0){
             model = R.raw.cube;
-        else if(i==1)
-            model = R.raw.rectangleottoman;
+        }
+        else if(i==1){
+            model = R.raw.hexagonottoman;
+
+        }
         else if(i==2)
             model = R.raw.commaottomanmy;
+        else if(i==3)
+            model = R.raw.cornerottoman;
+        else if(i==4)
+            model = R.raw.kidneyottoman;
+        else if(i==5)
+            model = R.raw.crescentottoman;
         ModelRenderable.builder()
                 .setSource(this,model)
                 .build()

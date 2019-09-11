@@ -11,6 +11,16 @@ import android.widget.TextView;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.lateralx.civom.Model.RetroPhoto;
 import com.lateralx.civom.R;
+import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
+import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
+import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageScaleType;
+import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
+import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -23,6 +33,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public CustomAdapter(Context context,List<RetroPhoto> dataList){
         this.context = context;
         this.dataList = dataList;
+
+
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder {
@@ -36,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
             super(itemView);
             mView = itemView;
 
-            txtTitle = mView.findViewById(R.id.title);
+            txtTitle = mView.findViewById(R.id.title0);
             coverImage = mView.findViewById(R.id.coverImage);
         }
     }
@@ -50,14 +62,19 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
-        holder.txtTitle.setText(dataList.get(position).getTitle());
-
-        Picasso.Builder builder = new Picasso.Builder(context);
-        builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(dataList.get(position).getThumbnailUrl())
-                .placeholder((R.drawable.ic_launcher_background))
-                .error(R.drawable.ic_launcher_background)
-                .into(holder.coverImage);
+        holder.txtTitle.setText(dataList.get(position).getName());
+        ImageLoader imageLoader = ImageLoader.getInstance();
+//        Picasso.Builder builder = new Picasso.Builder(context);
+//        builder.downloader(new OkHttp3Downloader(context));
+//        builder.build().load("http://35.154.220.170/"+dataList.get(position).getThumbnail_compressed())
+//                .placeholder((R.drawable.ic_launcher_background))
+//                .noFade()
+//                .error(R.drawable.ic_launcher_background)
+//                .into(holder.coverImage);
+        if(dataList.get(position).getThumbnail_compressed()!= null && dataList.get(position).getThumbnail_compressed()!= "")
+        imageLoader.displayImage("http://35.154.220.170/"+dataList.get(position).getThumbnail_compressed(), holder.coverImage);
+        else
+            imageLoader.displayImage(String.valueOf(R.drawable.civom_logo_lowres), holder.coverImage);
 
     }
 
