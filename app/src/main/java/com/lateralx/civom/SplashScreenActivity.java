@@ -10,7 +10,7 @@ public class SplashScreenActivity extends Activity {
         /**
          * Duration of wait
          **/
-        private final int SPLASH_DISPLAY_LENGTH = 10000;
+        private final int SPLASH_DISPLAY_LENGTH = 5000;
 
         /**
          * Called when the activity is first created.

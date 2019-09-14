@@ -80,10 +80,10 @@ apply plugin: 'com.google.ar.sceneform.plugin'
 //        'sampledata/models/Seatingsandtables/Criss cross ottoman/Criss cross ottoman.sfa',
 //        'src/main/assets/Criss cross ottoman')
 //
-//sceneform.asset('sampledata/models/Seatingsandtables/Cube/Cube.FBX',
-//        'default',
-//        'sampledata/models/Seatingsandtables/Cube/Cube.sfa',
-//        'src/main/assets/Cube')
+sceneform.asset('sampledata/models/Seatingsandtables/Cube/Cube.FBX',
+        'default',
+        'sampledata/models/Seatingsandtables/Cube/Cube.sfa',
+        'src/main/res/raw/Cube')
 //
 //sceneform.asset('sampledata/models/Seatingsandtables/Hexagon Ottoman/Hexagon Ottoman.FBX',
 //        'default',
@@ -155,3 +155,9 @@ apply plugin: 'com.google.ar.sceneform.plugin'
 //        'sampledata/models/Seatingsandtables/Tube/Tube (1).sfa',
 //        'src/main/assets/Tube (1)')
 
+
+
+//sceneform.asset('sampledata/models/Cube.obj',
+//        'default',
+//        'sampledata/models/Cube.sfa',
+//        'src/main/res/raw/Cube')

@@ -8,19 +8,31 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.lateralx.civom.Model.RetroPhoto;
+import com.lateralx.civom.Network.RetrofitClientInstance;
+import com.nostra13.universalimageloader.core.ImageLoader;
+
+import java.util.List;
 
 
 public class CardFragment extends Fragment {
 
     private CardView cardView;
+    private String name;
+    private List<RetroPhoto> lp;
+    private int pos;
 
-    public static Fragment getInstance(int position) {
+    public static Fragment getInstance(int position, List<RetroPhoto> lp) {
         CardFragment f = new CardFragment();
         Bundle args = new Bundle();
         args.putInt("position", position);
+        args.putString("description",lp.get(position).getDescription());
+        args.putString("name",lp.get(position).getName());
+        args.putString("thumbnail",lp.get(position).getThumbnail_original());
+        args.putInt("pid",lp.get(position).getId());
         f.setArguments(args);
 
         return f;
@@ -31,17 +43,46 @@ public class CardFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
+
+        ImageLoader imageLoader = ImageLoader.getInstance();
+
         View view = inflater.inflate(R.layout.item_productviewpager, container, false);
+
 
         cardView = (CardView) view.findViewById(R.id.productcard);
         cardView.setMaxCardElevation(cardView.getCardElevation() * CardAdapter.MAX_ELEVATION_FACTOR);
 
-        TextView title = (TextView) view.findViewById(R.id.title);
+        TextView title = (TextView) view.findViewById(R.id.titlecard);
+        pos = getArguments().getInt("position");
+        title.setText(getArguments().getString("name"));
+        TextView description = view.findViewById(R.id.productdesc);
+        description.setText(getArguments().getString("description"));
+        TextView thumbnailimg = view.findViewById(R.id.textthumbnail);
+        thumbnailimg.setText(getArguments().getString("thumbnail"));
+       // TextView productid = view.findViewById(R.id.productid);
+       // productid.setText(String.valueOf(getArguments().getInt("pid")));
+        ImageView productimage = view.findViewById(R.id.productimage);
+
+        if(getArguments().getString("thumbnail")!= null && getArguments().getString("thumbnail")!= "") {
+            imageLoader.displayImage(RetrofitClientInstance.BASE_URL +"/" +getArguments().getString("thumbnail"), productimage);
+        }
+        else
+        {
+            imageLoader.displayImage(String.valueOf(R.drawable.product_storychair3x), productimage);
+        }
+
+
 
         return view;
     }
 
+
+
     public CardView getCardView() {
         return cardView;
+    }
+
+    public void passargs(List<RetroPhoto> lp) {
+        this.lp= lp;
     }
 }

@@ -1,6 +1,7 @@
 package com.lateralx.civom.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.lateralx.civom.Model.RetroPhoto;
+import com.lateralx.civom.ProductActivity;
 import com.lateralx.civom.R;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
@@ -43,6 +45,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
         TextView txtTitle;
         private ImageView coverImage;
+        TextView txtDescription;
 
         CustomViewHolder(View itemView) {
             super(itemView);
@@ -50,6 +53,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
 
             txtTitle = mView.findViewById(R.id.title0);
             coverImage = mView.findViewById(R.id.coverImage);
+            txtDescription = mView.findViewById(R.id.productdesc);
         }
     }
 
@@ -63,14 +67,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
         holder.txtTitle.setText(dataList.get(position).getName());
+        holder.txtDescription.setText(dataList.get(position).getDescription());
         ImageLoader imageLoader = ImageLoader.getInstance();
-//        Picasso.Builder builder = new Picasso.Builder(context);
-//        builder.downloader(new OkHttp3Downloader(context));
-//        builder.build().load("http://35.154.220.170/"+dataList.get(position).getThumbnail_compressed())
-//                .placeholder((R.drawable.ic_launcher_background))
-//                .noFade()
-//                .error(R.drawable.ic_launcher_background)
-//                .into(holder.coverImage);
+
         if(dataList.get(position).getThumbnail_compressed()!= null && dataList.get(position).getThumbnail_compressed()!= "")
         imageLoader.displayImage("http://35.154.220.170/"+dataList.get(position).getThumbnail_compressed(), holder.coverImage);
         else
@@ -82,6 +81,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.CustomView
     public int getItemCount() {
         return dataList.size();
     }
+
 
 
 }

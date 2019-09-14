@@ -28,6 +28,9 @@ public class RetrofitClientInstance {
 
         @GET("/api/assets")
         Call<List<RetroPhoto>> getAllPhotos();
+
+        @GET("/api/assets/{pid}")
+        Call<RetroPhoto> getPhoto(int pid);
     }
 
 }
