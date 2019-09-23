@@ -2,12 +2,11 @@ package com.lateralx.civom;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,14 +18,19 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class ProductActivity extends AppCompatActivity {
+    TextView productname;
+    TextView productdescription;
+    ImageView productimg;
+    TextView productar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-        TextView productname = findViewById(R.id.productname);
-        TextView productdescription = findViewById(R.id.description);
-        ImageView productimg= findViewById(R.id.productimg);
+        productname = findViewById(R.id.productname);
+        productdescription = findViewById(R.id.description);
+        productimg= findViewById(R.id.productimg);
+        productar = findViewById(R.id.textar);
         Context c= this.getBaseContext();
         setupBottomNavigationView(c);
 
@@ -51,12 +55,15 @@ public class ProductActivity extends AppCompatActivity {
             productdescription.setText(msg);
             String thumbnail=(String)b.get("thumbnail");
             ImageLoader imageLoader = ImageLoader.getInstance();
-
+            j=(String) b.get("ar");
+            productar.setText(j);
+          Toast.makeText(ProductActivity.this,j,Toast.LENGTH_LONG).show();
             if(thumbnail!= null && thumbnail!= "")
                 imageLoader.displayImage("http://35.154.220.170/"+thumbnail, productimg);
             else
                 imageLoader.displayImage(String.valueOf(R.drawable.product_storychair3x), productimg);
         }
+
     }
     public void setupBottomNavigationView(Context context) {
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigationView);
@@ -103,4 +110,18 @@ public class ProductActivity extends AppCompatActivity {
     }
 
 
+    public void openAR(View view) {
+        Intent i = new Intent(this,ViewInARActivity.class);
+        productar = findViewById(R.id.textar);
+        i.putExtra("ar",productar.getText().toString());
+        i.putExtra("done","notdone");
+
+        new DownloadTask(ProductActivity.this, productar.getText().toString());
+
+        if(productar.getText().toString().isEmpty()){
+            Toast.makeText(ProductActivity.this,"Sorry This model is currently Unavailable for AR View",Toast.LENGTH_LONG).show();
+        }
+        else
+        startActivity(i);
+    }
 }

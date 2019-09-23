@@ -2,27 +2,50 @@ package com.lateralx.civom;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.HitTestResult;
+import com.google.ar.sceneform.Node;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
+import com.lateralx.civom.Adapter.ARCardFragmentPagerAdapter;
+import com.lateralx.civom.Model.RetroPhoto;
+import com.lateralx.civom.Network.RetrofitClientInstance;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class ViewInARActivity extends AppCompatActivity {
@@ -31,8 +54,10 @@ public class ViewInARActivity extends AppCompatActivity {
     private ArFragment arFragment;
     private ModelRenderable andyRenderable;
     private String df;
-    private int model;
+    private Uri model;
     private ViewPager viewPager;
+    private List<RetroPhoto> lrp;
+    private AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,31 +72,80 @@ public class ViewInARActivity extends AppCompatActivity {
             openIntro();
         }
 
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        ARCardFragmentPagerAdapter pagerAdapter = new ARCardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, this));
-        ARShadowTransformer fragmentCardARShadowTransformer = new ARShadowTransformer(viewPager, pagerAdapter);
-        fragmentCardARShadowTransformer.enableScaling(true);
+        DisplayImageOptions imgOptions = new DisplayImageOptions.Builder()
+                .cacheInMemory(true)
+                .showImageOnLoading(R.drawable.product_storychair3x)
+                .build();
+        ImageLoaderConfiguration imgConfig = new ImageLoaderConfiguration.Builder(ViewInARActivity.this)
+                .defaultDisplayImageOptions(imgOptions)
+                .build();
+        ImageLoader.getInstance().init(imgConfig);
+        Intent i = getIntent();
+        Bundle b =i.getExtras();
+        if(b!=null)
+        {
+             String ar=(String) b.get("ar");
+            selectModel(ar.replace("https://sales.lateralx.com/temp/",""));
+            if(b.get("done").toString() != "done")
+                Toast.makeText(ViewInARActivity.this,"Please Wait while the model downloads",Toast.LENGTH_LONG).show();
 
-        viewPager.setAdapter(pagerAdapter);
-        viewPager.setPageTransformer(false, fragmentCardARShadowTransformer);
-        viewPager.setOffscreenPageLimit(5);
-        selectModel(0);
-
-        if (!checkIsSupportedDeviceOrFinish(this)) {
-            return;
         }
+        else {
+            RetrofitClientInstance.GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(RetrofitClientInstance.GetDataService.class);
+            Call<List<RetroPhoto>> call = service.getAllPhotos();
+            call.enqueue(new Callback<List<RetroPhoto>>() {
+                @Override
+                public void onResponse(Call<List<RetroPhoto>> call, Response<List<RetroPhoto>> response) {
+                    lrp = response.body();
 
+                    if (isConnectingToInternet())
+                        for (int i = 0; i < lrp.size(); i++) {
+                            if (lrp.get(i).getFbx() != null && lrp.get(i).getFbx() != "") {
+                                new DownloadTask(ViewInARActivity.this, lrp.get(i).getFbx());
+
+                            }
+                        }
+                    else
+                        Toast.makeText(ViewInARActivity.this, "Oops!! There is no internet connection. Please enable internet connection and try again.", Toast.LENGTH_SHORT).show();
+
+                    viewPager = (ViewPager) findViewById(R.id.viewPager);
+                    ARCardFragmentPagerAdapter pagerAdapter = new ARCardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, ViewInARActivity.this), lrp);
+                    ARShadowTransformer fragmentCardARShadowTransformer = new ARShadowTransformer(viewPager, pagerAdapter);
+                    fragmentCardARShadowTransformer.enableScaling(true);
+
+                    viewPager.setAdapter(pagerAdapter);
+                    viewPager.setPageTransformer(false, fragmentCardARShadowTransformer);
+                    viewPager.setOffscreenPageLimit(5);
+                    //selectModel();
+
+                    if (!checkIsSupportedDeviceOrFinish(ViewInARActivity.this)) {
+                        return;
+                    }
+                    fragmentCardARShadowTransformer.setArModel(ViewInARActivity.this);
+
+
+                 //   arFragment.getArSceneView().getScene().addOnPeekTouchListener(this::handleOnTouch);
+
+                }
+
+
+                @Override
+                public void onFailure(Call<List<RetroPhoto>> call, Throwable t) {
+                    Toast.makeText(ViewInARActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(R.id.ux_fragment);
         // When you build a Renderable, Sceneform loads its resources in the background while returning
         // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
-
-       fragmentCardARShadowTransformer.setArModel(this);
 
 
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
                     if (andyRenderable == null) {
+                        Toast.makeText(ViewInARActivity.this,"Please Wait while the model downloads",Toast.LENGTH_LONG).show();
                         return;
                     }
 
@@ -87,29 +161,19 @@ public class ViewInARActivity extends AppCompatActivity {
                     object.getScaleController().setMinScale(0.99f);
                     object.getScaleController().setMaxScale(1.0f);
                     object.select();
+
+
                 });
 
     }
 
-    public void selectModel(int i) {
-        model = R.raw.cube;
-        if(i==0){
-            model = R.raw.cube;
-        }
-        else if(i==1){
-            model = R.raw.hexagonottoman;
 
-        }
-        else if(i==2)
-            model = R.raw.commaottomanmy;
-        else if(i==3)
-            model = R.raw.cornerottoman;
-        else if(i==4)
-            model = R.raw.kidneyottoman;
-        else if(i==5)
-            model = R.raw.crescentottoman;
+    public void selectModel(String modelname) {
+
+       model=Uri.parse(Environment.getExternalStorageDirectory() + "/"
+                       + Utils.downloadDirectory+"/"+modelname);
         ModelRenderable.builder()
-                .setSource(this,model)
+                .setSource(this, model)
                 .build()
                 .thenAccept(renderable -> andyRenderable = renderable)
                 .exceptionally(
@@ -124,6 +188,15 @@ public class ViewInARActivity extends AppCompatActivity {
 
     private void openIntro() {
         Intent i = new Intent(this,IntroActivity.class);
+        Intent i2 = getIntent();
+        Bundle b =i2.getExtras();
+        if(b!=null)
+        {
+            String ar=(String) b.get("ar");
+            i.putExtra("ar",b.get("ar").toString());
+
+        }
+
         startActivity(i);
     }
 
@@ -147,8 +220,40 @@ public class ViewInARActivity extends AppCompatActivity {
         }
         return true;
     }
+    private boolean isConnectingToInternet() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected())
+            return true;
+        else
+            return false;
+    }
 
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
+    }
+    public void downModel(View v){
+
+        TextView modname =(TextView)v.findViewById(R.id.textView6);
+        if (isConnectingToInternet()) {
+            new DownloadTask(ViewInARActivity.this, modname.getText().toString());
+
+        }
+        else
+            Toast.makeText(ViewInARActivity.this, "Oops!! There is no internet connection. Please enable internet connection and try again.", Toast.LENGTH_SHORT).show();
+        if(modname.getText().toString().contains("temp"))
+        selectModel(modname.getText().toString().replace("https://sales.lateralx.com/temp/",""));
+        else
+            selectModel(modname.getText().toString().replace("https://raw.githubusercontent.com/Gauzz/civommodels/master/",""));
+
+    }
+
+
+
+    public void deleteModel(View view) {
+        HitTestResult hitTestResult;
+        MotionEvent motionEvent;
+
+
     }
 }

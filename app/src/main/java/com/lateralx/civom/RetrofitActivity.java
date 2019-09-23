@@ -3,26 +3,23 @@ package com.lateralx.civom;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lateralx.civom.Adapter.CustomAdapter;
 import com.lateralx.civom.Model.RetroPhoto;
 import com.lateralx.civom.Network.RetrofitClientInstance;
-import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
-import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
-import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 
 import java.util.List;
 
@@ -34,12 +31,21 @@ public class RetrofitActivity extends AppCompatActivity {
     private CustomAdapter adapter;
     private RecyclerView recyclerView;
     ProgressDialog progressDoalog;
+    private String term;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit);
         Context c= this.getBaseContext();
         setupBottomNavigationView(c);
+        Intent i = getIntent();
+        Bundle b =i.getExtras();
+        if(b!=null)
+        {
+            term =(String) b.get("term");
+
+        }
         DisplayImageOptions imgOptions = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .showImageOnLoading(R.drawable.civom_logo_lowres)
@@ -54,7 +60,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
         /*Create handle for the RetrofitInstance interface*/
         RetrofitClientInstance.GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(RetrofitClientInstance.GetDataService.class);
-        Call<List<RetroPhoto>> call = service.getAllPhotos();
+        Call<List<RetroPhoto>> call = service.search(term);
         call.enqueue(new Callback<List<RetroPhoto>>() {
             @Override
             public void onResponse(Call<List<RetroPhoto>> call, Response<List<RetroPhoto>> response) {
@@ -127,5 +133,19 @@ public class RetrofitActivity extends AppCompatActivity {
     public void openCatalogue(View v){
         Intent i = new Intent(this,RetrofitActivity.class);
         startActivity(i);
+    }
+
+    public void viewProduct(View view) {
+        Intent i = new Intent(RetrofitActivity.this, ProductActivity.class);
+        TextView t =view.findViewById(R.id.title0);
+        TextView desc = view.findViewById(R.id.textdescription);
+        TextView textthumbnail = view.findViewById(R.id.textthumb);
+        TextView textar = view.findViewById(R.id.textpar);
+        i.putExtra("name",String.valueOf(t.getText()));
+        i.putExtra("description",String.valueOf(desc.getText()));
+        i.putExtra("thumbnail",String.valueOf(textthumbnail.getText()));
+        i.putExtra("ar",String.valueOf(textar.getText()));
+        startActivity(i);
+
     }
 }

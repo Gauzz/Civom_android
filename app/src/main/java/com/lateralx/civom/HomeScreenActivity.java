@@ -1,31 +1,28 @@
 package com.lateralx.civom;
 
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Environment;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 
 public class HomeScreenActivity extends AppCompatActivity {
+    private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 200;
+
+    // private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE =    PackageManager.PERMISSION_DENIED ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,63 +31,36 @@ public class HomeScreenActivity extends AppCompatActivity {
         Context c= this.getBaseContext();
         setupBottomNavigationView(c);
 
-        if (isConnectingToInternet())
-            new DownloadTask(HomeScreenActivity.this, "http://35.154.220.170/cube.sfb");
-        else
-            Toast.makeText(HomeScreenActivity.this, "Oops!! There is no internet connection. Please enable internet connection and try again.", Toast.LENGTH_SHORT).show();
+
+        if (ContextCompat.checkSelfPermission(HomeScreenActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED)
+
+        {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(HomeScreenActivity.this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+            } else {
+                // No explanation needed; request the permission
+                ActivityCompat.requestPermissions(HomeScreenActivity.this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
+
+                // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                // app-defined int constant. The callback method gets the
+                // result of the request.
+            }
+        } else {
+            // Permission has already been granted
+        }
 
 
-
-//        String filename = "cube.sfb";
-//        String fileContents = "Hello world!";
 //
-//
-//
-//        try {
-//            URL url = new URL("http://35.154.220.170/cube.sfb");
-//            HttpURLConnection con = null;
-//            con = (HttpURLConnection) url.openConnection();
-//            con.setRequestMethod("GET");
-//            con.connect();
-//            File file = new File(c.getFilesDir(), filename);
-//
-//            if (!file.exists()) {
-//                file.mkdir();
-//              Toast.makeText(c,"Directory Created.",Toast.LENGTH_SHORT).show();
-//
-//            }
-//
-//            File outputFile = new File(file, "cube.sfb");
-//            if (!outputFile.exists()) {
-//                outputFile.createNewFile();
-//                Toast.makeText(c,"File Created.",Toast.LENGTH_SHORT).show();
-//            }
-//
-//
-//
-//            FileOutputStream fos = new FileOutputStream(outputFile);//Get OutputStream for NewFile Location
-//
-//            InputStream is = con.getInputStream();//Get InputStream for connection
-//
-//            byte[] buffer = new byte[1024];//Set buffer type
-//            int len1 = 0;//init length
-//            while ((len1 = is.read(buffer)) != -1) {
-//                fos.write(buffer, 0, len1);//Write new file
-//            }
-//            fos.close();
-//            is.close();
-//
-//            FileOutputStream outputStream;
-//
-//            outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-//            outputStream.write(is.read());
-//            outputStream.close();
-//        } catch (Exception e) {
-//            Toast.makeText(c,e.getMessage()+"exception",Toast.LENGTH_LONG).show();
-//            e.printStackTrace();
-//        }
-
-
     }
 
     public void setupBottomNavigationView(Context context) {
@@ -145,12 +115,27 @@ public class HomeScreenActivity extends AppCompatActivity {
         Intent i = new Intent(this,whycivomActivity.class);
         startActivity(i);
     }
-    private boolean isConnectingToInternet() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        if (networkInfo != null && networkInfo.isConnected())
-            return true;
-        else
-            return false;
+    public void openTestimonial(View v){
+        Intent i = new Intent(this,TestimonialActivity.class);
+        startActivity(i);
+    }
+
+
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                } else {
+                }
+                return;
+            }
+
+         }
     }
 }

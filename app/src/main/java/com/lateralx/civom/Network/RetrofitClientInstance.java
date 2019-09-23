@@ -8,6 +8,8 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public class RetrofitClientInstance {
 
@@ -31,6 +33,12 @@ public class RetrofitClientInstance {
 
         @GET("/api/assets/{pid}")
         Call<RetroPhoto> getPhoto(int pid);
+
+        @GET("/api/search/{term}")
+        Call<List<RetroPhoto>> search(@Path("term") String term);
+
+        @GET("/api/categories/{term}")
+        Call<List<RetroPhoto>> filter(@Path("term") String term);
     }
 
 }

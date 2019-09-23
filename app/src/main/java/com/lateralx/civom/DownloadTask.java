@@ -1,6 +1,7 @@
 package com.lateralx.civom;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.os.Handler;
@@ -26,7 +27,9 @@ public class DownloadTask {
         this.context = context;
         this.downloadUrl = downloadUrl;
 
-        downloadFileName = "cube.sfb";//Create file name by picking download file name from URL
+        downloadFileName = downloadUrl.replace("https://sales.lateralx.com/temp/","");//Create file name by picking download file name from URL
+        //if(downloadUrl.contains("cube.sfb")){downloadUrl.replace("https://raw.githubusercontent.com/Gauzz/civommodels/master/","");}
+
         Log.e(TAG, downloadFileName);
 
         //Start Downloading Task
@@ -51,6 +54,12 @@ public class DownloadTask {
                 if (outputFile != null) {
 //                    buttonText.setEnabled(true);
 //                    buttonText.setText(R.string.downloadCompleted);//If Download completed then change button text
+                    Toast.makeText(context,"Download Completed",Toast.LENGTH_LONG).show();
+                    Intent i = new Intent(context,ViewInARActivity.class);
+                     i.putExtra("ar",downloadUrl);
+                     i.putExtra("done","done");
+                     context.startActivity(i);
+
                 } else {
 //                    buttonText.setText(R.string.downloadFailed);//If download failed change button text
                     new Handler().postDelayed(new Runnable() {

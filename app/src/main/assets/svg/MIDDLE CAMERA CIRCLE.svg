@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
-  <g id="MIDDLE" transform="translate(-430 -1995)">
-    <circle id="MIDDLE_OUTER" data-name="MIDDLE OUTER" cx="94" cy="94" r="94" transform="translate(446 2011)" fill="#fff"/>
-    <g id="MIDDLE-2" data-name="MIDDLE" transform="translate(440 2005)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="10">
-      <circle cx="100" cy="100" r="100" stroke="none"/>
-      <circle cx="100" cy="100" r="105" fill="none"/>
-    </g>
-  </g>
-</svg>

@@ -46,6 +46,15 @@ public class IntroActivity extends OnboarderActivity {
     public void onFinishButtonPressed()
     {
         Intent i = new Intent(this,ViewInARActivity.class);
+            Intent i2 = getIntent();
+        Bundle b =i2.getExtras();
+        if(b!=null)
+        {
+            String ar=(String) b.get("ar");
+            i.putExtra("ar",b.get("ar").toString());
+            i.putExtra("done",b.get("done").toString());
+
+        }
         startActivity(i);
     }
 

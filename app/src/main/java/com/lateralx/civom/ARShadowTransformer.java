@@ -1,16 +1,18 @@
 package com.lateralx.civom;
 
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.CardView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.cardview.widget.CardView;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
+
+import com.lateralx.civom.Adapter.ARCardAdapter;
 
 public class ARShadowTransformer implements ViewPager.OnPageChangeListener, ViewPager.PageTransformer {
 
     private ViewPager viewPager;
     private ViewInARActivity viar;
-    private ARCardAdapter ARCardAdapter;
+    private com.lateralx.civom.Adapter.ARCardAdapter ARCardAdapter;
     private float lastOffset;
     private boolean scalingEnabled;
     private int mScrollState;
@@ -120,7 +122,8 @@ public class ARShadowTransformer implements ViewPager.OnPageChangeListener, View
             toasts.show();
             handleScrollState(state);
             mScrollState = state;
-            viar.selectModel(viewPager.getCurrentItem());
+            View v=viewPager.getChildAt(viewPager.getCurrentItem());
+            viar.downModel(v);
 
         //       viar.selectModel(curitem);
     }

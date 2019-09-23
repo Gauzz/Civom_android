@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1000419408614",
+    "firebase_url": "https://civom-f0282.firebaseio.com",
+    "project_id": "civom-f0282",
+    "storage_bucket": "civom-f0282.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1000419408614:android:0d410e688bbab7aa171927",
+        "android_client_info": {
+          "package_name": "com.lateralx.civom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1000419408614-qaru5u2vqk2dc4asd5oulehad0s1v87t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNWR1gwqguG_clAN_P9Q_xcpu3pGjWOM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1000419408614-qaru5u2vqk2dc4asd5oulehad0s1v87t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

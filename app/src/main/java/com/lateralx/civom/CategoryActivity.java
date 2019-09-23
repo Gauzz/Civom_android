@@ -4,16 +4,21 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.inputmethod.EditorInfo;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lateralx.civom.Adapter.CardFragmentPagerAdapter;
 import com.lateralx.civom.Model.RetroPhoto;
 import com.lateralx.civom.Network.RetrofitClientInstance;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -30,6 +35,7 @@ public class CategoryActivity extends AppCompatActivity {
 
     private ProgressDialog progressDoalog;
     private List<RetroPhoto> lrp;
+    ViewPager viewPager;
     Context c;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +43,7 @@ public class CategoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_category);
         c= this.getBaseContext();
         setupBottomNavigationView(c);
-        ViewPager viewPager = findViewById(R.id.productviewPager);
+        viewPager = findViewById(R.id.productviewPager);
 
         DisplayImageOptions imgOptions = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
@@ -80,9 +86,16 @@ public class CategoryActivity extends AppCompatActivity {
                 call.clone();
             }
         });
-
-
-
+        final EditText edittext = (EditText) findViewById(R.id.editTextSearch);
+        edittext.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+                    searchProduct(v);
+                    return true;
+                }
+                return false;
+            }
+        });
 
     }
 
@@ -137,36 +150,62 @@ public class CategoryActivity extends AppCompatActivity {
     public void openProduct(View v){
         Intent i = new Intent(this, ProductActivity.class);
         TextView t =v.findViewById(R.id.titlecard);
-      //  ImageView pid =v.findViewById(R.id.productimg);
         TextView desc = v.findViewById(R.id.productdesc);
         TextView textthumbnail = v.findViewById(R.id.textthumbnail);
-//        RetrofitClientInstance.GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(RetrofitClientInstance.GetDataService.class);
-//        Call<RetroPhoto> call = service.getPhoto(Integer.getInteger((String) pid.getText()));
-//        call.enqueue(new Callback<RetroPhoto>() {
-//            @Override
-//            public void onResponse(Call<RetroPhoto> call, Response<RetroPhoto> response) {
-                i.putExtra("name",String.valueOf(t.getText()));
-                i.putExtra("description",String.valueOf(desc.getText()));
-                i.putExtra("thumbnail",String.valueOf(textthumbnail.getText()));
-          //      i.putExtra("thumbnail",String.valueOf(pid.getText()));
+        TextView ar =v.findViewById(R.id.productar);
 
-//            }
-//
-//
-//
-//            @Override
-//            public void onFailure(Call<RetroPhoto> call, Throwable t) {
-//
-//              Toast.makeText(c,t.getMessage(),Toast.LENGTH_LONG).show();
-//                call.clone();
-//            }
-//        });
-
-
-
+            i.putExtra("name",String.valueOf(t.getText()));
+            i.putExtra("description",String.valueOf(desc.getText()));
+            i.putExtra("thumbnail",String.valueOf(textthumbnail.getText()));
+            i.putExtra("ar",String.valueOf(ar.getText()));
         startActivity(i);
     }
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
     }
+
+    public void searchProduct(View view) {
+        TextView searchtextview = (TextView)findViewById(R.id.editTextSearch);
+        String term = searchtextview.getText().toString();
+        Intent intent= new Intent(CategoryActivity.this,RetrofitActivity.class);
+        intent.putExtra("term",term);
+        startActivity(intent);
+    }
+
+    public void populate(View view) {
+        progressDoalog = new ProgressDialog(CategoryActivity.this);
+        progressDoalog.setMessage("Loading....");
+        progressDoalog.show();
+        Button button = (Button) view;
+        String term = (String)button.getText();
+        /*Create handle for the RetrofitInstance interface*/
+        RetrofitClientInstance.GetDataService service = RetrofitClientInstance.getRetrofitInstance().create(RetrofitClientInstance.GetDataService.class);
+        Call<List<RetroPhoto>> call = service.filter(term);
+        call.enqueue(new Callback<List<RetroPhoto>>() {
+            @Override
+            public void onResponse(Call<List<RetroPhoto>> call, Response<List<RetroPhoto>> response) {
+                progressDoalog.dismiss();
+                lrp =response.body();
+                //generateDataList(response.body());
+                CardFragmentPagerAdapter pagerAdapter = new CardFragmentPagerAdapter(getSupportFragmentManager(), dpToPixels(2, c),lrp);
+                ShadowTransformer fragmentCardShadowTransformer = new ShadowTransformer(viewPager, pagerAdapter);
+                fragmentCardShadowTransformer.enableScaling(true);
+
+                viewPager.setAdapter(pagerAdapter);
+                viewPager.setPageTransformer(false, fragmentCardShadowTransformer);
+                viewPager.setOffscreenPageLimit(3);
+
+            }
+
+
+
+            @Override
+            public void onFailure(Call<List<RetroPhoto>> call, Throwable t) {
+                progressDoalog.dismiss();
+                Toast.makeText(CategoryActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                call.clone();
+            }
+        });
+    }
+
 }
