@@ -63,14 +63,14 @@ public class ViewInARActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_in_ar);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
-        if(!previouslyStarted) {
-            SharedPreferences.Editor edit = prefs.edit();
-            edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
-            edit.commit();
-            openIntro();
-        }
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+//        boolean previouslyStarted = prefs.getBoolean(getString(R.string.pref_previously_started), false);
+//        if(!previouslyStarted) {
+//            SharedPreferences.Editor edit = prefs.edit();
+//            edit.putBoolean(getString(R.string.pref_previously_started), Boolean.TRUE);
+//            edit.commit();
+//            openIntro();
+//        }
 
         DisplayImageOptions imgOptions = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
@@ -86,7 +86,7 @@ public class ViewInARActivity extends AppCompatActivity {
         {
              String ar=(String) b.get("ar");
             selectModel(ar.replace("https://sales.lateralx.com/temp/",""));
-            if(b.get("done").toString() != "done")
+        //    if(b.get("done").toString() != "done")
                 Toast.makeText(ViewInARActivity.this,"Please Wait while the model downloads",Toast.LENGTH_LONG).show();
 
         }

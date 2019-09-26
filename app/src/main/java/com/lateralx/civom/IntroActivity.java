@@ -51,8 +51,8 @@ public class IntroActivity extends OnboarderActivity {
         if(b!=null)
         {
             String ar=(String) b.get("ar");
-            i.putExtra("ar",b.get("ar").toString());
-            i.putExtra("done",b.get("done").toString());
+            i.putExtra("ar",ar);
+//            i.putExtra("done",b.get("done").toString());
 
         }
         startActivity(i);

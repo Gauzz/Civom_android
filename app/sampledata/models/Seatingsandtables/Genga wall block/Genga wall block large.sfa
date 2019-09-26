@@ -1,0 +1,63 @@
+{
+  materials: [
+    {
+      name: 'sdafasdf',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'klassic turque',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Genga wall block/Genga wall block large.FBX',
+    name: 'Genga wall block large',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Genga wall block\\Genga wall block large.fbm\\klassic turque.jpg',
+      name: 'klassic turque',
+      pipeline_name: 'Genga wall block large.fbm\\klassic turque.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

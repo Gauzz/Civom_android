@@ -57,7 +57,7 @@ public class DownloadTask {
                     Toast.makeText(context,"Download Completed",Toast.LENGTH_LONG).show();
                     Intent i = new Intent(context,ViewInARActivity.class);
                      i.putExtra("ar",downloadUrl);
-                     i.putExtra("done","done");
+                //     i.putExtra("done","done");
                      context.startActivity(i);
 
                 } else {

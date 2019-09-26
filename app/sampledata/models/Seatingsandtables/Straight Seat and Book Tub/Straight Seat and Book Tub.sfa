@@ -1,0 +1,106 @@
+{
+  materials: [
+    {
+      name: '05 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Gyro plum',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '07 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Birch wood copy',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Straight Seat and Book Tub/Straight Seat and Book Tub.FBX',
+    name: 'Straight Seat and Book Tub',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Straight Seat and Book Tub\\Straight Seat and Book Tub.fbm\\Gyro plum.jpg',
+      name: 'Gyro plum',
+      pipeline_name: 'Straight Seat and Book Tub.fbm\\Gyro plum.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Straight Seat and Book Tub\\Straight Seat and Book Tub.fbm\\Birch wood copy.jpg',
+      name: 'Birch wood copy',
+      pipeline_name: 'Straight Seat and Book Tub.fbm\\Birch wood copy.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

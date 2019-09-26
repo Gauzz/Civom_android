@@ -1,0 +1,187 @@
+{
+  materials: [
+    {
+      name: '23 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'klassic skyblue 09 ',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'Material #59',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'wildtextures-leather-Campo-green neptune copy',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '24 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'wildtextures-leather-Campo-lila',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '10 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.090195999999999998,
+            0.090195999999999998,
+            0.090195999999999998,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Circular Collection/Circular Collection.FBX',
+    name: 'Circular Collection',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Circular Collection\\Circular Collection.fbm\\klassic skyblue 09 .jpg',
+      name: 'klassic skyblue 09 ',
+      pipeline_name: 'Circular Collection.fbm\\klassic skyblue 09 .jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Circular Collection\\Circular Collection.fbm\\wildtextures-leather-Campo-green neptune copy.jpg',
+      name: 'wildtextures-leather-Campo-green neptune copy',
+      pipeline_name: 'Circular Collection.fbm\\wildtextures-leather-Campo-green neptune copy.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Circular Collection\\Circular Collection.fbm\\wildtextures-leather-Campo-lila.jpg',
+      name: 'wildtextures-leather-Campo-lila',
+      pipeline_name: 'Circular Collection.fbm\\wildtextures-leather-Campo-lila.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

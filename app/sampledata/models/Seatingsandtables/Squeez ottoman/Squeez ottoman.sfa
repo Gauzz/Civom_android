@@ -1,0 +1,187 @@
+{
+  materials: [
+    {
+      name: '19 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'wildtextures-leather-Campo-lila',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '24 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'wildtextures-leather-Campo-pink neptune',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '23 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'wildtextures-leather-Campo-green neptune copy',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'Material #753',
+      parameters: [
+        {
+          baseColor: [
+            0.098039000000000001,
+            0.090195999999999998,
+            0.090195999999999998,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Squeez ottoman/Squeez ottoman.FBX',
+    name: 'Squeez ottoman',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Squeez ottoman\\Squeez ottoman.fbm\\wildtextures-leather-Campo-lila.jpg',
+      name: 'wildtextures-leather-Campo-lila',
+      pipeline_name: 'Squeez ottoman.fbm\\wildtextures-leather-Campo-lila.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Squeez ottoman\\Squeez ottoman.fbm\\wildtextures-leather-Campo-pink neptune.jpg',
+      name: 'wildtextures-leather-Campo-pink neptune',
+      pipeline_name: 'Squeez ottoman.fbm\\wildtextures-leather-Campo-pink neptune.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Squeez ottoman\\Squeez ottoman.fbm\\wildtextures-leather-Campo-green neptune copy.jpg',
+      name: 'wildtextures-leather-Campo-green neptune copy',
+      pipeline_name: 'Squeez ottoman.fbm\\wildtextures-leather-Campo-green neptune copy.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

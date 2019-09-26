@@ -35,8 +35,8 @@ dependencies {
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
     // Provides ArFragment, and other Sceneform UX resources:
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.12.0'
-    implementation 'com.google.ar.sceneform:assets:1.12.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.11.0'
+    implementation 'com.google.ar.sceneform:assets:1.11.0'
     // Use the Sceneform UX Package built from the source files included in the sceneformux folder.
     //api project(":sceneformux")
 
@@ -54,5 +54,4 @@ dependencies {
 }
 apply plugin: 'com.google.ar.sceneform.plugin'
 apply plugin: 'com.google.gms.google-services'
-
 

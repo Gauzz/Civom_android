@@ -1,0 +1,230 @@
+{
+  materials: [
+    {
+      name: '04 - asfs',
+      parameters: [
+        {
+          baseColor: [
+            0.0078429999999999993,
+            0.0078429999999999993,
+            0.0078429999999999993,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '13 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: '22059 SF',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: 'Material #4705',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Frosty White',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '09 - sadfa',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Gravity steel High',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '09 - asdfasf',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Pulsar Denim',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Seed Collection/Seed Collection.FBX',
+    name: 'Seed Collection',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Seed Collection\\Seed Collection.fbm\\Gravity steel High.jpg',
+      name: 'Gravity steel High',
+      pipeline_name: 'Seed Collection.fbm\\Gravity steel High.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Seed Collection\\Seed Collection.fbm\\22059 SF.jpg',
+      name: '22059 SF',
+      pipeline_name: 'Seed Collection.fbm\\22059 SF.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Seed Collection\\Seed Collection.fbm\\Frosty White.jpg',
+      name: 'Frosty White',
+      pipeline_name: 'Seed Collection.fbm\\Frosty White.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Seed Collection\\Seed Collection.fbm\\Pulsar Denim.jpg',
+      name: 'Pulsar Denim',
+      pipeline_name: 'Seed Collection.fbm\\Pulsar Denim.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

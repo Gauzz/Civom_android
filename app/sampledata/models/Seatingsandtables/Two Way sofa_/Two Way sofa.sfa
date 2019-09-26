@@ -1,0 +1,144 @@
+{
+  materials: [
+    {
+      name: '24 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'ex_prod_11658',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '12 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'ex_prod_11695',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '03 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.043137000000000002,
+            0.047058999999999997,
+            0.050979999999999998,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Two Way sofa_/Two Way sofa.FBX',
+    name: 'Two Way sofa',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Two Way sofa_\\Two Way sofa.fbm\\ex_prod_11658.jpg',
+      name: 'ex_prod_11658',
+      pipeline_name: 'Two Way sofa.fbm\\ex_prod_11658.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Two Way sofa_\\Two Way sofa.fbm\\ex_prod_11695.jpg',
+      name: 'ex_prod_11695',
+      pipeline_name: 'Two Way sofa.fbm\\ex_prod_11695.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

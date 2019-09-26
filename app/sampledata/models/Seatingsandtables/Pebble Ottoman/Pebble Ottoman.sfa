@@ -1,0 +1,187 @@
+{
+  materials: [
+    {
+      name: '21 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'wildtextures-leather-Campo-pink neptune',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '06 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.117647,
+            0.117647,
+            0.117647,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '20 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'klassic purple_german leather',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '14 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'wildtextures-leather-Campo-green neptune copy',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Pebble Ottoman/Pebble Ottoman.FBX',
+    name: 'Pebble Ottoman',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Pebble Ottoman\\Pebble Ottoman.fbm\\wildtextures-leather-Campo-pink neptune.jpg',
+      name: 'wildtextures-leather-Campo-pink neptune',
+      pipeline_name: 'Pebble Ottoman.fbm\\wildtextures-leather-Campo-pink neptune.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Pebble Ottoman\\Pebble Ottoman.fbm\\klassic purple_german leather.jpg',
+      name: 'klassic purple_german leather',
+      pipeline_name: 'Pebble Ottoman.fbm\\klassic purple_german leather.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Pebble Ottoman\\Pebble Ottoman.fbm\\wildtextures-leather-Campo-green neptune copy.jpg',
+      name: 'wildtextures-leather-Campo-green neptune copy',
+      pipeline_name: 'Pebble Ottoman.fbm\\wildtextures-leather-Campo-green neptune copy.jpg',
+    },
+  ],
+  version: '0.54:2',
+}

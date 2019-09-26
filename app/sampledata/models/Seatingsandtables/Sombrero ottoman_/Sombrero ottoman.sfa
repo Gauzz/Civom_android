@@ -1,0 +1,145 @@
+{
+  materials: [
+    {
+      name: '18 - Default',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Astral',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '18 - Defaultlk;k',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'Pebble',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+    {
+      name: '04 - Default',
+      parameters: [
+        {
+          baseColor: [
+            0.047058999999999997,
+            0.047058999999999997,
+            0.047058999999999997,
+            1,
+          ],
+        },
+        {
+          baseColorMap: null,
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Sombrero ottoman_/Sombrero ottoman.FBX',
+    name: 'Sombrero ottoman',
+    recenter: 'root',
+    scale: 0.99043000000000003,
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Sombrero ottoman_\\Sombrero ottoman.fbm\\Astral.jpg',
+      name: 'Astral',
+      pipeline_name: 'Sombrero ottoman.fbm\\Astral.jpg',
+    },
+    {
+      file: 'sampledata/models/Seatingsandtables/Sombrero ottoman_\\Sombrero ottoman.fbm\\Pebble.png',
+      name: 'Pebble',
+      pipeline_name: 'Sombrero ottoman.fbm\\Pebble.png',
+    },
+  ],
+  version: '0.54:2',
+}

@@ -1,0 +1,63 @@
+{
+  materials: [
+    {
+      name: '05 - Defaultasdffasdfasdf',
+      parameters: [
+        {
+          baseColor: [
+            1,
+            1,
+            1,
+            1,
+          ],
+        },
+        {
+          baseColorMap: 'klassic firozi',
+        },
+        {
+          normalMap: null,
+        },
+        {
+          interpolatedColor: null,
+        },
+        {
+          metallic: 0,
+        },
+        {
+          metallicMap: null,
+        },
+        {
+          roughness: 1,
+        },
+        {
+          roughnessMap: null,
+        },
+        {
+          opacity: null,
+        },
+      ],
+      source: 'build/sceneform_sdk/default_materials/fbx_material.sfm',
+    },
+  ],
+  model: {
+    attributes: [
+      'Position',
+      'TexCoord',
+      'Orientation',
+      'BoneIndices',
+      'BoneWeights',
+    ],
+    collision: {},
+    file: 'sampledata/models/Seatingsandtables/Genga wall block/Genga wall block small.FBX',
+    name: 'Genga wall block small',
+    recenter: 'root',
+  },
+  samplers: [
+    {
+      file: 'sampledata/models/Seatingsandtables/Genga wall block\\Genga wall block small.fbm\\klassic firozi.jpg',
+      name: 'klassic firozi',
+      pipeline_name: 'Genga wall block small.fbm\\klassic firozi.jpg',
+    },
+  ],
+  version: '0.54:2',
+}
